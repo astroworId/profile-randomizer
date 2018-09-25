@@ -4,7 +4,7 @@ const quantity = config.numberoftimes;
 const addressline1 = config.address.address_line_1
 const prompt = require('prompt');
 prompt.get(['addressline'], function (err, result) {
-console.log('Address Line 1: ' + `result.addressline \n`);
+  console.log('Address Line 1: ' + result.addressline);
 
 prompt.start();
 console.log(`Success! Your address was randomized ${quantity} times!  Please see addy.txt for a list of your randomized addresses.`)
@@ -18,7 +18,7 @@ for (repeat = 0; repeat < quantity; repeat++) {
     for (var i = 0; i < 4; i++)
       text += possible.charAt(Math.floor(Math.random() * possible.length));
     
-    let randomizedaddress = text + str(result.addressline)
+    let randomizedaddress = text + result.addressline
     fs.appendFileSync('addy.txt', randomizedaddress)
 }
 });
