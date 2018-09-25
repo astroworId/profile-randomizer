@@ -18,7 +18,7 @@ for (repeat = 0; repeat < quantity; repeat++) {
     for (var i = 0; i < 4; i++)
       text += possible.charAt(Math.floor(Math.random() * possible.length));
     
-    let randomizedaddress = text + result.addressline
+    let randomizedaddress = text +  " " + result.addressline
     fs.appendFileSync('addy.txt', randomizedaddress)
 }
 });
