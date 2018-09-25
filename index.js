@@ -1,5 +1,5 @@
 const fs = require('fs');
-const config = JSON.parse(fs.readFileSync('addressconfig.json'));
+const config = JSON.parse(fs.readFileSync('config.json'));
 const quantity = config.numberoftimes;
 const addressline1 = config.address.address_line_1
 
