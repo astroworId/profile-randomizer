@@ -1,17 +1,15 @@
 const fs = require('fs');
-const config = JSON.parse(fs.readFileSync('config.json'));
-const quantity = config.numberoftimes;
-const addressline1 = config.address.address_line_1
 const prompt = require('prompt');
-prompt.get(['addressline'], function (err, result) {
+prompt.get(['addressline','quantity'], function (err, result) {
   console.log('Address Line 1: ' + result.addressline);
+  console.log('Quantity: ' + result.quantity);
 
 prompt.start();
 console.log(`Success! Your address was randomized ${quantity} times!  Please see addy.txt for a list of your randomized addresses.`)
 
 fs.writeFileSync('addy.txt', `Success! Your address was randomized ${quantity} times!\n\n\n`)
 
-for (repeat = 0; repeat < quantity; repeat++) {
+for (repeat = 0; repeat < result.quantity; repeat++) {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   
