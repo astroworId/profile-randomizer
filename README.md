@@ -5,7 +5,7 @@ progress: command line input, and more choice.
 Instructions:
 
 1. Download the file, unzip if necessary.
-2. Edit config.json with your address details and quantity of randomization, then save the file.
+2. Edit config.json with your address details and quantity of randomization, then save the file.  NOTE: DO NOT REMOVE THE \N FROM THE CONFIG FILE.
 3. Open terminal or equivalent CLI application.
 4. Navigate to the directory.
 5. Type node address.js.
