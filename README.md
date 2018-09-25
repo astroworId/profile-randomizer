@@ -1,7 +1,5 @@
 # address-randomizer
 
-progress: command line input, and more choice.
-
 Instructions:
 
 1. Download the file, unzip if necessary.
@@ -12,3 +10,5 @@ Instructions:
 6. Check the newly created file with your randomized addresses.
 
 DM on discord @cactus jack#0001 or twitter @stroworld with any questions.
+
+Will add more customization/html barebones site if I have more time later.
