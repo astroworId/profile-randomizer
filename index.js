@@ -9,8 +9,6 @@ console.log('')
 const fs = require('fs');
 const prompt = require('prompt');
 prompt.get(['AddressLine1','Quantity'], function (err, result) {
-  console.log('Address Line 1: ' + result.AddressLine1);
-  console.log('Quantity: ' + result.Quantity);
 
 prompt.start();
 console.log(`Success! Your address was randomized ${result.Quantity} times!  Please see addy.txt for a list of your randomized addresses.`)
