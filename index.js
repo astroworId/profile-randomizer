@@ -11,18 +11,17 @@ const prompt = require('prompt');
 prompt.get(['AddressLine1','Quantity'], function (err, result) {
 
 prompt.start();
-console.log(`Success! Your address was randomized ${result.Quantity} times!  Please see addy.txt for a list of your randomized addresses.`)
-
-fs.writeFileSync('addy.txt', `Success! Your address was randomized ${result.Quantity} times!\n\n\n`)
+console.log(`Success! Your address was randomized ${result.Quantity} times! Please see addy.txt for a list of your randomized addresses.`)
+fs.writeFileSync(`addy.txt`, `Success! Your address was randomized ${result.Quantity} times!\n\n\n`)
 
 for (repeat = 0; repeat < result.Quantity; repeat++) {
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var randomstring = "";
+    var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   
     for (var i = 0; i < 4; i++)
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
+      randomstring += alphabet.charAt(Math.floor(Math.random() * alphabet.length));
     
-    let randomizedaddress = text +  " " + result.AddressLine1 + "\n"
+    let randomizedaddress = randomstring +  " " + result.AddressLine1 + "\n"
     fs.appendFileSync('addy.txt', randomizedaddress)
 }
 });
