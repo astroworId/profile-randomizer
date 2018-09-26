@@ -2,7 +2,7 @@
 
 Instructions:
 
-1. Download the file, unzip if necessary.
+1. Download and unzip the file.
 2. Open terminal or equivalent CLI application.
 3. Navigate to the directory.
 4. Type node address.js.
