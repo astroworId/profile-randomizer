@@ -1,4 +1,4 @@
-# address-randomizer
+# profile-randomizer
 
 Instructions:
 
@@ -10,5 +10,7 @@ Instructions:
 6. Navigate to the "addy.txt" file to find your randomized addresses.
 
 DM me on discord (@cactus jack#0001) or twitter (@stroworld) if you have any questions.
+
+Supports: 4 Possible Address Randomizations, Phone Randomization, Catchall Randomization, Address Randomization
 
 Status: Possible site/button thing, working on discord bot.
