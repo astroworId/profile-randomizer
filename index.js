@@ -8,7 +8,6 @@ var faker = require('faker');
 console.log(faker.fake("{{name.firstName}}, {{name.lastName}}"))
 
 
-// yes i realize now that i could shorten the script a lot, maybe later tho after i do csv
 const fs = require('fs');
 const prompt = require('prompt');
 console.log("\nPlease select one of the options for randomization below. The ABCD is the randomized part of the address.\n")
