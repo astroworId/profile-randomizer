@@ -4,8 +4,11 @@ console.log('------------Discord: @cactus jack#0001-------------')
 console.log('------------Twitter: @stroworld--------------------')
 console.log('---------------------------------------------------')
 console.log('')
+var faker = require('faker');
+console.log(faker.fake("{{name.firstName}}, {{name.lastName}}"))
 
 
+// yes i realize now that i could shorten the script a lot, maybe later tho after i do csv
 const fs = require('fs');
 const prompt = require('prompt');
 console.log("\nPlease select one of the options for randomization below. The ABCD is the randomized part of the address.\n")
@@ -21,21 +24,25 @@ prompt.get(['Option'], function (err, result) {
 prompt.start();
     if (result.Option == 1) {
         prompt.get(['AddressLine1', 'ApartmentLength', 'Catchall','PhoneAreaCode','Quantity'], function (err, result) {
-
         prompt.start();
         console.log(`Success! Your address was randomized ${result.Quantity} times! Please see addy.txt for a list of your randomized address(es).`)
-        fs.writeFileSync(`addy.txt`, `Success! Your address was randomized ${result.Quantity} times!\n\n\n`)
+        fs.writeFileSync(`addy.txt`, `Success! Your address was randomized ${result.Quantity} times!\n\n`)
         console.log(`Success! Your apartment was randomized ${result.Quantity} times! Please see apt.txt for a list of your randomized apartment(s).`)
-        fs.writeFileSync(`apt.txt`, `Success! Your apartment was randomized ${result.Quantity} times!\n\n\n`)
+        fs.writeFileSync(`apt.txt`, `Success! Your apartment was randomized ${result.Quantity} times!\n\n`)
         console.log(`Success! Your catchall was randomized ${result.Quantity} times! Please see catchall.txt for a list of your randomized email(s).`)
-        fs.writeFileSync(`catchall.txt`, `Success! Your catchall was randomized ${result.Quantity} times!\n\n\n`)
+        fs.writeFileSync(`catchall.txt`, `Success! Your catchall was randomized ${result.Quantity} times!\n\n`)
         console.log(`Success! Your phone number was randomized ${result.Quantity} times! Please see phone.txt for a list of your randomized phone number(s).`)
-        fs.writeFileSync(`phone.txt`, `Success! Your phone number was randomized ${result.Quantity} times!\n\n\n`)
+        fs.writeFileSync(`phone.txt`, `Success! Your phone number was randomized ${result.Quantity} times!\n\n`)
+        console.log(`Success! Your name was randomized ${result.Quantity} times! Please see name.txt for a list of your randomized name(s).`)
+        fs.writeFileSync(`name.txt`, `Success! Your name was randomized ${result.Quantity} times!\n\n`)
+        
+       
             for (repeat = 0; repeat < result.Quantity; repeat++) {
                 var randomstring = "";
                 var randomnumbers = "";
                 var randomlowercase = "";
                 var randomphonenumbers = "";
+                var randomName = "";
                 var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 var numbers = "0123456789";
                 var lowercaseletters = "abcdefghijklmnopqrstuvwxyz";
@@ -48,6 +55,7 @@ prompt.start();
                     randomlowercase += lowercaseletters.charAt(Math.floor(Math.random() * lowercaseletters.length));
                 for (var i = 0; i < 7; i++)
                     randomphonenumbers += numbers.charAt(Math.floor(Math.random() * numbers.length));
+                randomName += faker.name.firstName() + " " + faker.name.lastName() + "\n"
     
                 let randomizedaddress = randomstring +  " " + result.AddressLine1 + "\n"
                 let randomizedapt = "Apt" + " " + randomnumbers + "\n"
@@ -57,6 +65,7 @@ prompt.start();
                 fs.appendFileSync('apt.txt', randomizedapt)
                 fs.appendFileSync('catchall.txt', randomcatchall)
                 fs.appendFileSync('phone.txt', randomphone)
+                fs.appendFileSync('name.txt', randomName)
                 }
              });
         
@@ -65,19 +74,22 @@ prompt.start();
 
                 prompt.start();
                 console.log(`Success! Your address was randomized ${result.Quantity} times! Please see addy.txt for a list of your randomized addresses.`)
-                fs.writeFileSync(`addy.txt`, `Success! Your address was randomized ${result.Quantity} times!\n\n\n`)
+                fs.writeFileSync(`addy.txt`, `Success! Your address was randomized ${result.Quantity} times!\n\n`)
                 console.log(`Success! Your apartment was randomized ${result.Quantity} times! Please see apt.txt for a list of your randomized apartment(s).`)
-                fs.writeFileSync(`apt.txt`, `Success! Your apartment was randomized ${result.Quantity} times!\n\n\n`)
+                fs.writeFileSync(`apt.txt`, `Success! Your apartment was randomized ${result.Quantity} times!\n\n`)
                 console.log(`Success! Your catchall was randomized ${result.Quantity} times! Please see catchall.txt for a list of your randomized email(s).`)
-                fs.writeFileSync(`catchall.txt`, `Success! Your catchall was randomized ${result.Quantity} times!\n\n\n`)
+                fs.writeFileSync(`catchall.txt`, `Success! Your catchall was randomized ${result.Quantity} times!\n\n`)
                 console.log(`Success! Your phone number was randomized ${result.Quantity} times! Please see phone.txt for a list of your randomized phone number(s).`)
-                fs.writeFileSync(`phone.txt`, `Success! Your phone number was randomized ${result.Quantity} times!\n\n\n`)
+                fs.writeFileSync(`phone.txt`, `Success! Your phone number was randomized ${result.Quantity} times!\n\n`)
+                console.log(`Success! Your name was randomized ${result.Quantity} times! Please see name.txt for a list of your randomized name(s).`)
+                fs.writeFileSync(`name.txt`, `Success! Your name was randomized ${result.Quantity} times!\n\n`)
         
                     for (repeat = 0; repeat < result.Quantity; repeat++) {
                         var randomstring = "";
                         var randomnumbers = "";
                         var randomlowercase = "";
                         var randomphonenumbers = "";
+                        var randomName = "";
                         var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                         var numbers = "0123456789";
                         var lowercaseletters = "abcdefghijklmnopqrstuvwxyz";
@@ -91,6 +103,7 @@ prompt.start();
                             randomlowercase += lowercaseletters.charAt(Math.floor(Math.random() * lowercaseletters.length));
                         for (var i = 0; i < 7; i++)
                             randomphonenumbers += numbers.charAt(Math.floor(Math.random() * numbers.length));
+                        randomName += faker.name.firstName() + " " + faker.name.lastName() + "\n"
             
                         let randomizedaddress = result.HouseNumber + " " + randomstring +  " " + result.Street + "\n"
                         let randomizedapt = "Apt" + " " + randomnumbers + "\n"
@@ -100,6 +113,7 @@ prompt.start();
                         fs.appendFileSync('apt.txt', randomizedapt)
                         fs.appendFileSync('catchall.txt', randomcatchall)
                         fs.appendFileSync('phone.txt', randomphone)
+                        fs.appendFileSync('name.txt', randomName)
                         }
                      });
                 } else if (result.Option == 3) {
@@ -115,12 +129,15 @@ prompt.start();
                         fs.writeFileSync(`catchall.txt`, `Success! Your catchall was randomized ${result.Quantity} times!\n\n\n`)
                         console.log(`Success! Your phone number was randomized ${result.Quantity} times! Please see phone.txt for a list of your randomized phone number(s).`)
                         fs.writeFileSync(`phone.txt`, `Success! Your phone number was randomized ${result.Quantity} times!\n\n\n`)
+                        console.log(`Success! Your name was randomized ${result.Quantity} times! Please see name.txt for a list of your randomized name(s).`)
+                        fs.writeFileSync(`name.txt`, `Success! Your name was randomized ${result.Quantity} times!\n\n`)
                 
                             for (repeat = 0; repeat < result.Quantity; repeat++) {
                                 var randomstring = "";
                                 var randomnumbers = "";
                                 var randomlowercase = "";
                                 var randomphonenumbers = "";
+                                var randomName = "";
                                 var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                                 var numbers = "0123456789";
                                 var lowercaseletters = "abcdefghijklmnopqrstuvwxyz";
@@ -133,6 +150,7 @@ prompt.start();
                                     randomlowercase += lowercaseletters.charAt(Math.floor(Math.random() * lowercaseletters.length));
                                 for (var i = 0; i < 7; i++)
                                     randomphonenumbers += numbers.charAt(Math.floor(Math.random() * numbers.length));
+                                randomName += faker.name.firstName() + " " + faker.name.lastName() + "\n"
                     
                                 let randomizedaddress = result.HouseNumber + " "+ result.StreetName + " " + randomstring +  " " + result.StreetSuffix + "\n"
                                 let randomizedapt = "Apt" + " " + randomnumbers + "\n"
@@ -142,6 +160,7 @@ prompt.start();
                                 fs.appendFileSync('apt.txt', randomizedapt)
                                 fs.appendFileSync('catchall.txt', randomcatchall)
                                 fs.appendFileSync('phone.txt', randomphone)
+                                fs.appendFileSync('name.txt', randomName)
                                 }
                              });
                         } else if (result.Option == 4) {
@@ -158,12 +177,15 @@ prompt.start();
                                 fs.writeFileSync(`catchall.txt`, `Success! Your catchall was randomized ${result.Quantity} times!\n\n\n`)
                                 console.log(`Success! Your phone number was randomized ${result.Quantity} times! Please see phone.txt for a list of your randomized phone number(s).`)
                                 fs.writeFileSync(`phone.txt`, `Success! Your phone number was randomized ${result.Quantity} times!\n\n\n`)
+                                console.log(`Success! Your name was randomized ${result.Quantity} times! Please see name.txt for a list of your randomized name(s).`)
+                                fs.writeFileSync(`name.txt`, `Success! Your name was randomized ${result.Quantity} times!\n\n`)
                         
                                     for (repeat = 0; repeat < result.Quantity; repeat++) {
                                         var randomstring = "";
                                         var randomnumbers = "";
                                         var randomlowercase = "";
                                         var randomphonenumbers = "";
+                                        var randomName = "";
                                         var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                                         var numbers = "0123456789";
                                         var lowercaseletters = "abcdefghijklmnopqrstuvwxyz";
@@ -176,6 +198,7 @@ prompt.start();
                                             randomlowercase += lowercaseletters.charAt(Math.floor(Math.random() * lowercaseletters.length));
                                         for (var i = 0; i < 7; i++)
                                             randomphonenumbers += numbers.charAt(Math.floor(Math.random() * numbers.length));
+                                           randomName += faker.name.firstName() + " " + faker.name.lastName() + "\n"
                             
                                         let randomizedaddress = result.HouseNumber + " "+ result.StreetName + " " + randomstring +  " " + result.StreetSuffix + "\n"
                                         let randomizedapt = "Apt" + " " + randomnumbers + "\n"
@@ -185,6 +208,7 @@ prompt.start();
                                         fs.appendFileSync('apt.txt', randomizedapt)
                                         fs.appendFileSync('catchall.txt', randomcatchall)
                                         fs.appendFileSync('phone.txt', randomphone)
+                                        fs.appendFileSync('name.txt', randomName)
                                         }
                                      });
                         }
