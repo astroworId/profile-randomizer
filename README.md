@@ -11,7 +11,7 @@ Instructions:
 
 DM me on discord (@cactus jack#0001) or twitter (@stroworld) if you have any questions.
 
-Supports: 4 Possible Address Randomizations, Phone Randomization, Catchall Randomization, Address Randomization
+Supports: 4 Possible Address Randomizations, Phone Randomization, Catchall Randomization, Address Randomization, automatically generates random names.
 
 Status: Working on csv.
 Possible site/button thing, working on discord bot.
