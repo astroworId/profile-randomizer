@@ -1,5 +1,12 @@
 # profile-randomizer
 
+Requirements:
+
+Must have node and npm installed, you can download both https://www.npmjs.com/.
+Must have prompt installed (npm i prompt in the folder).
+Must have faker installed (npm i faker in the folder).
+
+
 Instructions:
 
 1. Download and unzip the file.
@@ -12,6 +19,3 @@ Instructions:
 DM me on discord (@cactus jack#0001) or twitter (@stroworld) if you have any questions.
 
 Supports: 4 Possible Address Randomizations, Phone Randomization, Catchall Randomization, Address Randomization, automatically generates random names.
-
-Status: Working on csv.
-Possible site/button thing, working on discord bot.
