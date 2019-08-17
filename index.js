@@ -72,7 +72,7 @@ prompt.start();
                 random.name = `${faker.name.firstName()} ${faker.name.lastName()}\n`
                 random.address = `${randomLetters('addy')} ${r['Address Line 1']}\n`
                 random.apt = `${randomLine2()} ${randomNumbers('apt')}\n`
-                random.catchall = `${faker.name.firstName()}${(randomNumbers('catchall')).toLowerCase()}@${r.Catchall}\n`
+                random.catchall = `${faker.name.firstName()}${(randomNumbers('catchall'))}@${r.Catchall}\n`
                 random.phone_number = `${r['Phone Area Code']}${randomNumbers('phone')}\n`
                 fs.appendFileSync('name.txt', random.name)
                 fs.appendFileSync('addy.txt', random.address)
@@ -81,15 +81,16 @@ prompt.start();
                 fs.appendFileSync('phone.txt', random.phone_number)
             }
         })
-    } else if (r.Option === 2) {
+    } else if (r.Option == 2) {
         prompt.get(['House Number', 'Street', 'Apartment Length', 'Catchall', 'Phone Area Code', 'Quantity'], function (e, r) {
         prompt.start();
             console.log(`Success! Your information was randomized ${r.Quantity} times! Please see the txt files for a list of your randomized information.`)
             for (repeat = 0; repeat < r.Quantity; repeat++) {
+                let random = {}
                 random.name = `${faker.name.firstName()} ${faker.name.lastName()}\n`
                 random.address = `${r['House Number']} ${randomLetters('addy')} ${r.Street}\n`
                 random.apt = `${randomLine2()} ${randomNumbers('apt')}\n`
-                random.catchall = `${faker.name.firstName()}${(randomLetters('catchall')).toLowerCase()}@${r.Catchall}\n`
+                random.catchall = `${faker.name.firstName()}${(randomNumbers('catchall'))}@${r.Catchall}\n`
                 random.phone_number = `${r['Phone Area Code']}${randomNumbers('phone')}\n`
                 fs.appendFileSync('name.txt', random.name)
                 fs.appendFileSync('addy.txt', random.address)
@@ -98,16 +99,17 @@ prompt.start();
                 fs.appendFileSync('phone.txt', random.phone_number)
             }
         })
-    } else if (r.Option === 3) {
+    } else if (r.Option == 3) {
         console.log('\nNote: Street Suffix is the "St, Dr, Ave, etc." part of your address.  Street Name is the actual name of your street.\n')
         prompt.get(['House Number', 'Street Name', 'Street Suffix', 'Apartment Length', 'Catchall', 'Phone Area Code', 'Quantity'], function (e, r) {
             prompt.start();
             console.log(`Success! Your information was randomized ${r.Quantity} times! Please see the txt files for a list of your randomized information.`)
             for (repeat = 0; repeat < r.Quantity; repeat++) {
+                let random = {}
                 random.name = `${faker.name.firstName()} ${faker.name.lastName()}\n`
                 random.address = `${r['House Number']} ${r['Street Name']} ${randomLetters('addy')} ${r['Street Suffix']}\n`
                 random.apt = `${randomLine2()} ${randomNumbers('apt')}\n`
-                random.catchall = `${faker.name.firstName()}${(randomLetters('catchall')).toLowerCase()}@${r.Catchall}\n`
+                random.catchall = `${faker.name.firstName()}${(randomNumbers('catchall'))}@${r.Catchall}\n`
                 random.phone_number = `${r['Phone Area Code']}${randomNumbers('phone')}\n`
                 fs.appendFileSync('name.txt', random.name)
                 fs.appendFileSync('addy.txt', random.address)
@@ -116,15 +118,16 @@ prompt.start();
                 fs.appendFileSync('phone.txt', random.phone_number)
             }
         })
-    } else if (r.Option === 4) {
+    } else if (r.Option == 4) {
         prompt.get(['Address Line 1','Quantity', 'Apartment Length', 'Catchall', 'Phone Area Code'], function (e, r) {
             prompt.start();
             console.log(`Success! Your information was randomized ${r.Quantity} times! Please see the txt files for a list of your randomized information.`)
             for (repeat = 0; repeat < r.Quantity; repeat++) {
+                let random = {}
                 random.name = `${faker.name.firstName()} ${faker.name.lastName()}\n`
                 random.address = `${r['Address Line 1']} ${randomLetters('addy')}\n`
                 random.apt = `${randomLine2()} ${randomNumbers('apt')}\n`
-                random.catchall = `${faker.name.firstName()}${(randomLetters('catchall')).toLowerCase()}@${r.Catchall}\n`
+                random.catchall = `${faker.name.firstName()}${(randomNumbers('catchall'))}@${r.Catchall}\n`
                 random.phone_number = `${r['Phone Area Code']}${randomNumbers('phone')}\n`
                 fs.appendFileSync('name.txt', random.name)
                 fs.appendFileSync('addy.txt', random.address)
